@@ -1,7 +1,6 @@
 package me.lineagegb;
 
-import me.lineagegb.events.InteractEvent;
-import me.lineagegb.events.JoinEvent;
+import me.lineagegb.events.*;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,6 +19,10 @@ public final class LineageHub extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "LineageHub " + ChatColor.GREEN + "Enabled");
         getServer().getPluginManager().registerEvents(new JoinEvent(), this);
         getServer().getPluginManager().registerEvents(new InteractEvent(),this);
+        getServer().getPluginManager().registerEvents(new DeathEvent(),this);
+        getServer().getPluginManager().registerEvents(new PlaceEvent(),this);
+        getServer().getPluginManager().registerEvents(new BreakEvent(),this);
+        getServer().getPluginManager().registerEvents(new OutOfWorldEvent(),this);
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
     }

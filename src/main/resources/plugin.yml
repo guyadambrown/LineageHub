@@ -4,3 +4,7 @@ main: me.lineagegb.LineageHub
 api-version: 1.16
 authors: [ Lineage ]
 description: Collection of Hub related things
+
+permissions:
+  lineagehub.canmodify:
+    default: false

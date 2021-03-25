@@ -2,23 +2,17 @@ package me.lineagegb.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class JoinEvent implements Listener {
+public class DeathEvent implements Listener {
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent joinEvent){
-        Player player = joinEvent.getPlayer();
-        //Casts the player to a Bukkit Player
-        player.sendTitle("Welcome §6§l" + player.getName(),null,10,70,20);
-        //Welcomes them to the server with a title.
-        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1f,1f);
-        //Plays a sound to them
+    public void onPlayerDeath(PlayerDeathEvent DeathEvent){
+        Player player = DeathEvent.getEntity();
 
         //Give player Creative item on join
         ItemStack CreativeItem = new ItemStack(Material.GRASS_BLOCK, 1);
