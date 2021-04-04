@@ -10,10 +10,12 @@ public class OutOfWorldEvent implements Listener {
     @EventHandler
     public void OnOutOfWorld(PlayerMoveEvent moveEvent){
         Player player = (Player) moveEvent.getPlayer();
-        if (player.getLocation().getBlockY() <60){
-            Location spawn = new Location(player.getWorld(), 0,64,0);
-            player.teleport(spawn);
-            player.sendMessage("§3Oops, you slipped.");
+        if(player.hasPermission("lineagehub.outofworld")){
+            if (player.getLocation().getBlockY() <60){
+                Location spawn = new Location(player.getWorld(), 0,64,0);
+                player.teleport(spawn);
+                player.sendMessage("§3Oops, you slipped.");
+        }
         }
     }
 }
