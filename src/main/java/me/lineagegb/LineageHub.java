@@ -19,7 +19,7 @@ public final class LineageHub extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "LineageHub " + ChatColor.GREEN + "Enabled");
         getServer().getPluginManager().registerEvents(new JoinEvent(), this);
         getServer().getPluginManager().registerEvents(new InteractEvent(),this);
-        getServer().getPluginManager().registerEvents(new DeathEvent(),this);
+        getServer().getPluginManager().registerEvents(new RespawnEvent(),this);
         getServer().getPluginManager().registerEvents(new PlaceEvent(),this);
         getServer().getPluginManager().registerEvents(new BreakEvent(),this);
         getServer().getPluginManager().registerEvents(new OutOfWorldEvent(),this);
