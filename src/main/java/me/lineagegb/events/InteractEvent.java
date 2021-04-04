@@ -41,11 +41,14 @@ public class InteractEvent implements Listener {
                 proxyplayer.sendPluginMessage( LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
 
             }else {
-                //Send Player to creative server
-                ByteArrayDataOutput out = ByteStreams.newDataOutput();
-                out.writeUTF("Connect");
-                out.writeUTF("creative");
-                player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
+                if (player.getInventory().getItemInMainHand().equals(CreativeItem)){
+                    //Send Player to creative server
+                    ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                    out.writeUTF("Connect");
+                    out.writeUTF("creative");
+                    player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
+                }
+
             }
         }
     }
