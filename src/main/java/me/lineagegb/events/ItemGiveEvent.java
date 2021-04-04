@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class JoinEvent implements Listener {
+public class ItemGiveEvent implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent joinEvent){
         Player player = joinEvent.getPlayer();
