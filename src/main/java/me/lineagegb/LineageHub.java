@@ -22,6 +22,7 @@ public final class LineageHub extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlaceEvent(),this);
         getServer().getPluginManager().registerEvents(new BreakEvent(),this);
         getServer().getPluginManager().registerEvents(new OutOfWorldEvent(),this);
+        getServer().getPluginManager().registerEvents(new HealthChangeEvent(),this);
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
     }
