@@ -23,20 +23,20 @@ public class InteractEvent implements Listener {
             //Register Survival ItemStack
             ItemStack Survival_Private_Item = new ItemStack(Material.DIAMOND_PICKAXE, 1);
             ItemMeta Survival_Private_Meta = Survival_Private_Item.getItemMeta();
-            Survival_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival Private" + ChatColor.DARK_GRAY + "(Right Click)");
+            Survival_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival Private " + ChatColor.DARK_GRAY + "(Right Click)");
             Survival_Private_Item.setItemMeta(Survival_Private_Meta);
 
             //Register Creative ItemStack
             ItemStack Creative_Private_Item = new ItemStack(Material.GRASS_BLOCK, 1);
             ItemMeta Creative_Private_Meta = Creative_Private_Item.getItemMeta();
-            Creative_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative Private" + ChatColor.DARK_GRAY + "(Right Click)");
+            Creative_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative Private " + ChatColor.DARK_GRAY + "(Right Click)");
             Creative_Private_Item.setItemMeta(Creative_Private_Meta);
 
             //Register Survival ItemStack
             ItemStack Survival_Item = new ItemStack(Material.IRON_PICKAXE, 1);
             ItemMeta Survival_Meta = Survival_Item.getItemMeta();
-            Survival_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival" + ChatColor.DARK_GRAY + "(Right Click)");
-            Survival_Private_Item.setItemMeta(Survival_Meta);
+            Survival_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival " + ChatColor.DARK_GRAY + "(Right Click)");
+            Survival_Item.setItemMeta(Survival_Meta);
 
 
 
@@ -66,7 +66,7 @@ public class InteractEvent implements Listener {
             if (player.getInventory().getItemInMainHand().equals(Survival_Item)){
                     ByteArrayDataOutput out = ByteStreams.newDataOutput();
                     out.writeUTF("Connect");
-                    out.writeUTF("survival");
+                    out.writeUTF("survival-public");
                     player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
                 }
 

@@ -25,14 +25,14 @@ public class ItemGiveEvent implements Listener {
         if (player.hasPermission("lineagehub.private")){
             ItemStack Creative_Private_Item = new ItemStack(Material.GRASS_BLOCK, 1);
             ItemMeta Creative_Private_Meta = Creative_Private_Item.getItemMeta();
-            Creative_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative Private" + ChatColor.DARK_GRAY + "(Right Click)");
+            Creative_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative Private " + ChatColor.DARK_GRAY + "(Right Click)");
             Creative_Private_Item.setItemMeta(Creative_Private_Meta);
             player.getInventory().setItem(2,Creative_Private_Item);
 
             //Give player Survival item on join
             ItemStack Survival_Private_Item = new ItemStack(Material.DIAMOND_PICKAXE, 1);
             ItemMeta Survival_Private_Meta = Survival_Private_Item.getItemMeta();
-            Survival_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival Private" + ChatColor.DARK_GRAY + "(Right Click)");
+            Survival_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival Private " + ChatColor.DARK_GRAY + "(Right Click)");
             Survival_Private_Item.setItemMeta(Survival_Private_Meta);
             player.getInventory().setItem(6,Survival_Private_Item);
         }
@@ -40,7 +40,7 @@ public class ItemGiveEvent implements Listener {
         //Public survival server item
         ItemStack Survival_Item = new ItemStack(Material.IRON_PICKAXE, 1);
         ItemMeta Survival_Meta = Survival_Item.getItemMeta();
-        Survival_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival" + ChatColor.DARK_GRAY + "(Right Click)");
+        Survival_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival " + ChatColor.DARK_GRAY + "(Right Click)");
         Survival_Item.setItemMeta(Survival_Meta);
         player.getInventory().setItem(4,Survival_Item);
 
