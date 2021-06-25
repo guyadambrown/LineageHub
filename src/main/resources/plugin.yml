@@ -11,3 +11,6 @@ permissions:
 
   lineagehub.private:
     default: false
+
+  lineagehub.drop_item:
+    default: false
