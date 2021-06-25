@@ -8,3 +8,6 @@ description: Collection of Hub related things
 permissions:
   lineagehub.canmodify:
     default: false
+
+  lineagehub.private:
+    default: false

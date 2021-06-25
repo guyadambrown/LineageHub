@@ -21,35 +21,55 @@ public class InteractEvent implements Listener {
         Player proxyplayer = Bukkit.getPlayerExact(player.getName());
         if (interactEvent.getAction().equals(Action.RIGHT_CLICK_AIR)){
             //Register Survival ItemStack
-            ItemStack SurvivalItem = new ItemStack(Material.IRON_PICKAXE, 1);
-            ItemMeta SurvivalMeta = SurvivalItem.getItemMeta();
-            SurvivalMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival " + ChatColor.DARK_GRAY + "(Right Click)");
-            SurvivalItem.setItemMeta(SurvivalMeta);
+            ItemStack Survival_Private_Item = new ItemStack(Material.DIAMOND_PICKAXE, 1);
+            ItemMeta Survival_Private_Meta = Survival_Private_Item.getItemMeta();
+            Survival_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival Private" + ChatColor.DARK_GRAY + "(Right Click)");
+            Survival_Private_Item.setItemMeta(Survival_Private_Meta);
 
             //Register Creative ItemStack
-            ItemStack CreativeItem = new ItemStack(Material.GRASS_BLOCK, 1);
-            ItemMeta CreativeMeta = CreativeItem.getItemMeta();
-            CreativeMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative " + ChatColor.DARK_GRAY + "(Right Click)");
-            CreativeItem.setItemMeta(CreativeMeta);
+            ItemStack Creative_Private_Item = new ItemStack(Material.GRASS_BLOCK, 1);
+            ItemMeta Creative_Private_Meta = Creative_Private_Item.getItemMeta();
+            Creative_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative Private" + ChatColor.DARK_GRAY + "(Right Click)");
+            Creative_Private_Item.setItemMeta(Creative_Private_Meta);
+
+            //Register Survival ItemStack
+            ItemStack Survival_Item = new ItemStack(Material.IRON_PICKAXE, 1);
+            ItemMeta Survival_Meta = Survival_Item.getItemMeta();
+            Survival_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival" + ChatColor.DARK_GRAY + "(Right Click)");
+            Survival_Private_Item.setItemMeta(Survival_Meta);
 
 
-            if (player.getInventory().getItemInMainHand().equals(SurvivalItem)){
+
+            if (player.getInventory().getItemInMainHand().equals(Survival_Private_Item)) {
                 //Send player to survival server
-                ByteArrayDataOutput out = ByteStreams.newDataOutput();
-                out.writeUTF("Connect");
-                out.writeUTF("survival");
-                proxyplayer.sendPluginMessage( LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
-
-            }else {
-                if (player.getInventory().getItemInMainHand().equals(CreativeItem)){
-                    //Send Player to creative server
+                if (player.hasPermission("lineagehub.private")){
                     ByteArrayDataOutput out = ByteStreams.newDataOutput();
                     out.writeUTF("Connect");
-                    out.writeUTF("creative");
+                    out.writeUTF("survival-private");
+                    proxyplayer.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
+
+                }
+            }
+
+
+            if (player.getInventory().getItemInMainHand().equals(Creative_Private_Item)){
+                //Send Player to creative server
+                if (player.hasPermission("lineagehub.private")){
+
+                    ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                    out.writeUTF("Connect");
+                    out.writeUTF("creative-private");
+                    player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
+                }
+            }
+
+            if (player.getInventory().getItemInMainHand().equals(Survival_Item)){
+                    ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                    out.writeUTF("Connect");
+                    out.writeUTF("survival");
                     player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
                 }
 
             }
+            }
         }
-    }
-}

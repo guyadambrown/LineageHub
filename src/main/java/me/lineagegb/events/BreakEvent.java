@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerHarvestBlockEvent;
 public class BreakEvent implements Listener {
     @EventHandler
     public void OnPlayerModify(BlockBreakEvent breakEvent){
-        Player player = (Player) breakEvent.getPlayer();
+        Player player = breakEvent.getPlayer();
         if (!player.hasPermission("lineagehub.canmodify")){
             breakEvent.setCancelled(true);
             player.sendActionBar(TextComponent.fromLegacyText("§3§lYou cannot brake blocks here!"));

@@ -9,7 +9,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 public class PlaceEvent implements Listener {
     @EventHandler
     public void OnBlockBreak(BlockPlaceEvent placeEvent){
-        Player player = (Player) placeEvent.getPlayer();
+        Player player = placeEvent.getPlayer();
         if (!player.hasPermission("lineagehub.canmodify")){
             placeEvent.setCancelled(true);
             player.sendActionBar(TextComponent.fromLegacyText("§3§lYou cannot place blocks here!"));
