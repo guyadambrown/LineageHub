@@ -20,17 +20,12 @@ public class InteractEvent implements Listener {
         Player player = interactEvent.getPlayer();
         Player proxyplayer = Bukkit.getPlayerExact(player.getName());
         if (interactEvent.getAction().equals(Action.RIGHT_CLICK_AIR)){
-            //Register Survival ItemStack
-            ItemStack Survival_Private_Item = new ItemStack(Material.DIAMOND_PICKAXE, 1);
-            ItemMeta Survival_Private_Meta = Survival_Private_Item.getItemMeta();
-            Survival_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Survival Private " + ChatColor.DARK_GRAY + "(Right Click)");
-            Survival_Private_Item.setItemMeta(Survival_Private_Meta);
 
             //Register Creative ItemStack
-            ItemStack Creative_Private_Item = new ItemStack(Material.GRASS_BLOCK, 1);
-            ItemMeta Creative_Private_Meta = Creative_Private_Item.getItemMeta();
-            Creative_Private_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative Private " + ChatColor.DARK_GRAY + "(Right Click)");
-            Creative_Private_Item.setItemMeta(Creative_Private_Meta);
+            ItemStack Creative_Item = new ItemStack(Material.GRASS_BLOCK, 1);
+            ItemMeta Creative_Meta = Creative_Item.getItemMeta();
+            Creative_Meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Creative " + ChatColor.DARK_GRAY + "(Right Click)");
+            Creative_Item.setItemMeta(Creative_Meta);
 
             //Register Survival ItemStack
             ItemStack Survival_Item = new ItemStack(Material.IRON_PICKAXE, 1);
@@ -39,37 +34,22 @@ public class InteractEvent implements Listener {
             Survival_Item.setItemMeta(Survival_Meta);
 
 
-
-            if (player.getInventory().getItemInMainHand().equals(Survival_Private_Item)) {
-                //Send player to survival server
-                if (player.hasPermission("lineagehub.private")){
-                    ByteArrayDataOutput out = ByteStreams.newDataOutput();
-                    out.writeUTF("Connect");
-                    out.writeUTF("survival-private");
-                    proxyplayer.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
-
-                }
-            }
-
-
-            if (player.getInventory().getItemInMainHand().equals(Creative_Private_Item)){
+            if (player.getInventory().getItemInMainHand().equals(Creative_Item)){
                 //Send Player to creative server
-                if (player.hasPermission("lineagehub.private")){
-
                     ByteArrayDataOutput out = ByteStreams.newDataOutput();
                     out.writeUTF("Connect");
-                    out.writeUTF("creative-private");
+                    out.writeUTF("creative");
                     player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
-                }
             }
 
             if (player.getInventory().getItemInMainHand().equals(Survival_Item)){
-                    ByteArrayDataOutput out = ByteStreams.newDataOutput();
-                    out.writeUTF("Connect");
-                    out.writeUTF("survival-public");
-                    player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
-                }
+                //send player to survival server
+                ByteArrayDataOutput out = ByteStreams.newDataOutput();
+                out.writeUTF("Connect");
+                out.writeUTF("survival");
+                player.sendPluginMessage(LineageHub.getPlugin(), "BungeeCord", out.toByteArray());
+            }
 
-            }
-            }
         }
+    }
+}

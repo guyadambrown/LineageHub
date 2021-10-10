@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 public class ItemDropEvent implements Listener {
     @EventHandler
     public void ItemDrop(PlayerDropItemEvent dropEvent){
-        Player player = (Player) dropEvent.getPlayer();
+        Player player = dropEvent.getPlayer();
         if (!player.hasPermission("lineagehub.drop_item")){
             dropEvent.setCancelled(true);
         }
